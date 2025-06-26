@@ -868,5 +868,31 @@ Réponds uniquement avec le texte russe, sans commentaires.`;
             document.getElementById('textsGenerated').textContent = appState.textsGenerated;
         }
 
-        // Affichage statut
-        function showSyncStatus(message, isError = false
+
+          // Affichage statut
+        function showSyncStatus(message, isError = false) {
+            const statusEl = document.getElementById('syncStatus');
+            statusEl.textContent = message;
+            statusEl.className = 'sync-status' + (isError ? ' error' : '');
+            statusEl.style.display = 'block';
+            
+            setTimeout(() => {
+                statusEl.style.display = 'none';
+            }, 3000);
+        }
+
+        // Initialisation
+        document.addEventListener('DOMContentLoaded', function() {
+            loadData();
+            
+            // Gestion de la sélection de texte
+            document.addEventListener('mouseup', function() {
+                const selection = window.getSelection();
+                if (selection.toString().trim()) {
+                    // La sélection sera gérée par le bouton "Ajouter sélection"
+                }
+            });
+        });
+    </script>
+</body>
+</html>
