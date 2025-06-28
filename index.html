@@ -462,26 +462,29 @@
         }
 
         // Construction du prompt intelligent
-        function buildPrompt(wordsToReview) {
-            let prompt = `Rédige un texte intégralement en russe brut, de 1000 à 1250 caractères, simulant un discours, rapport ou intervention réaliste, contemporain et strictement lié aux enjeux multilatéraux actuels dans un cadre ONU.
+function buildPrompt(wordsToReview) {
+    let prompt = `Rédige un texte en russe brut, de 1000 à 1250 caractères, simulant un discours, rapport ou intervention réaliste, contemporain et strictement lié aux enjeux multilatéraux actuels dans un cadre ONU.
 
 Le texte doit : 
-• Se concentrer sur un seul micro-sujet concret, opérationnel ou technique, traité de façon crédible et cohérente — et non sur un tour d'horizon trop général. 
-• Varier les sujets d'un texte à l'autre pour couvrir un large éventail de thèmes pertinents ONU sur la durée.`;
+- Commencer sans formule d'appel ni introduction longue — attaque directement avec un fait, une donnée ou une situation concrète. 
+- Se concentrer sur un seul micro-sujet opérationnel ou technique, ancré dans un contexte crédible. 
+- Décrire une scène ou une action spécifique, sans se limiter à un catalogue de déclarations d'intentions.
+- Varier naturellement les thèmes d'un texte à l'autre pour couvrir un large éventail de réalités ONU, sans liste prédéfinie.`;
 
-            if (wordsToReview.length > 0) {
-                prompt += `\n• Intégrer naturellement ces mots ou expressions ciblés : ${wordsToReview.slice(0, 8).join(', ')}.`;
-            } else {
-                prompt += `\n• Ajouter 5 à 8 nouveaux mots ou expressions contextuellement logiques pour élargir le vocabulaire.`;
-            }
+    if (wordsToReview.length > 0) {
+        prompt += `\n• Intégrer naturellement ces mots ou expressions ciblés : ${wordsToReview.slice(0, 8).join(', ')}.`;
+    } else {
+        prompt += `\n• Intégrer 5 à 8 mots ou expressions de mon suivi vocabulaire de façon naturelle et pertinente.`;
+    }
 
-            prompt += `\n• Employer un ton institutionnel, une syntaxe claire et des phrases complètes, typiques d'une intervention multilatérale.
-• Le style, la longueur et la cohérence doivent rester parfaitement alignés avec une production ONU, sans dispersion thématique.
+    prompt += `\n• Employer un ton institutionnel, syntaxe claire et phrases complètes.
+- Inclure au besoin quelques éléments nouveaux, contextuellement logiques, pour enrichir le vocabulaire.
+- Le style, la longueur et la cohérence doivent rester parfaitement alignés avec une production ONU, sans survol ni remplissage généraliste.
 
 Réponds uniquement avec le texte russe, sans aucun commentaire.`;
 
-            return prompt;
-        }
+    return prompt;
+}
 
         // Récupération des mots à réviser
         function getWordsToReview() {
