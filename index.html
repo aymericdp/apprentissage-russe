@@ -471,22 +471,22 @@
             return await callOpenAIChat(messages, apiKey);
         }
 
-        // Construction du prompt intelligent
-    function buildPrompt(wordsToReview) {
-    let prompt = `Rédige un texte intégralement en russe brut, de 1000 à 1250 caractères, simulant un discours, rapport ou intervention réaliste, contemporain, strictement lié aux enjeux multilatéraux actuels et aux cadres onusiens.
+        / Construction du prompt intelligent
+function buildPrompt(wordsToReview) {
+    let prompt = `Rédige un texte intégralement en russe brut, de 1000 à 1250 caractères, simulant un discours, rapport ou intervention réaliste, contemporain et strictement lié aux enjeux multilatéraux actuels dans un cadre ONU.
 
 Le texte doit : 
-- Se concentrer sur un seul sujet concret ou angle précis, traité de façon crédible et cohérente. 
-- Veiller à varier les sujets d'un texte à l'autre pour couvrir un large éventail de thèmes pertinents ONU.`;
+- Se concentrer sur un seul micro-sujet concret, opérationnel ou technique, traité de façon crédible et cohérente — et non sur un tour d'horizon trop général. 
+- Varier les sujets d'un texte à l'autre pour couvrir un large éventail de thèmes pertinents ONU sur la durée.`;
 
     if (wordsToReview.length > 0) {
         prompt += `\n• Intégrer naturellement ces mots ou expressions ciblés : ${wordsToReview.slice(0, 8).join(', ')}.`;
     } else {
-        prompt += `\n• Ajouter 5 à 8 nouveaux mots ou expressions contextuellement logiques pour enrichir le vocabulaire.`;
+        prompt += `\n• Ajouter 5 à 8 nouveaux mots ou expressions contextuellement logiques pour élargir le vocabulaire.`;
     }
 
-    prompt += `\n• Employer un ton institutionnel, syntaxe claire, phrases complètes, typiques d'une intervention multilatérale.
-- Le style et la longueur doivent rester parfaitement alignés avec une production ONU, sans dispersion de thèmes.
+    prompt += `\n• Employer un ton institutionnel, une syntaxe claire et des phrases complètes, typiques d'une intervention multilatérale.
+- Le style, la longueur et la cohérence doivent rester parfaitement alignés avec une production ONU, sans dispersion thématique.
 
 Réponds uniquement avec le texte russe, sans aucun commentaire.`;
 
